@@ -12,7 +12,7 @@ After initially training with Kaggle's TPU, I used an A100 GPU via Google Colab 
 
 ## 📋 Challenge Description
 
-In this competition, we were tasked with playing rock-paper-scissors with image data. Each data point consisted of:
+In this competition, we were tasked with playing rock-paper-scissors with image data. Each of the 20,000 datapoints consisted of:
 
 - Two 24×24 grayscale images
 - A binary label:
@@ -30,7 +30,7 @@ I created an `EnhancedRPSDataset` class that handles:
 - Loading pairs of 24×24 grayscale images from provided pickle files
 - Resizing images to 224×224 for the ResNet model
 - Normalizing with ImageNet mean/std values ([0.485], [0.229])
-- Implementing extensive data augmentation techniques:
+- Implementing extensive data augmentation techniques after few of the images:
   - Random rotations (±30°)
   - Affine transforms (translation ±15%, scaling 85-115%)
   - Color jitter (brightness/contrast adjustments of ±25%)
@@ -38,7 +38,7 @@ I created an `EnhancedRPSDataset` class that handles:
   - Perspective distortions (distortion scale of 0.25 with 30% probability)
   - Gaussian blur (kernel size 3, sigma 0.1-2.0)
 
-The augmentation strategy was crucial for preventing overfitting on the relatively small dataset and improving model generalization to unseen images.
+The augmentation strategy was crucial for improving model generalization and accuracy to unseen images. 
 
 ### Model Architecture: ImprovedResNet34Siamese
 
@@ -96,7 +96,7 @@ To improve prediction robustness, I implemented TTA with:
 The competition followed standard Kaggle practices:
 
 - Public leaderboard showing performance on ~50% of the test data
-- Private leaderboard (determining final rankings) on the other ~50%
+- Private leaderboard (determining final rankings) on the other ~50% ( We placed 6th on both the private and public leaderboard )
 - Required submission of both:
   - CSV file with predictions to Kaggle
   - Full code submission to Gradescope for academic integrity verification
@@ -130,15 +130,11 @@ Each pickle file contains a dictionary with:
 
 ```
 .
-├── README.md
-├── train.py                        # Main training and prediction script
-├── model_2_resnet34_improved.py    # Model architecture definition
-├── best_model_2_resnet34_improved_final.pth  # Best model checkpoint
-├── model_2_improved_submission.csv # Kaggle submission file
-└── model_2_training_curves.png     # Learning curves visualization
+├── model.py ##the main model used for submission that I trained on Google Collab
+├── 
 ```
 
-## 💡 Key Insights & Techniques
+##  Key Insights & Techniques
 
 - **Strong data augmentation**: Crucial for generalization given the limited dataset size
 - **Attention mechanism**: Significantly improved the model's focus on relevant image regions for comparing gestures
@@ -147,23 +143,15 @@ Each pickle file contains a dictionary with:
 - **Test-time augmentation**: Provided a notable boost to final performance, especially on edge cases
 - **Model selection**: Careful validation and checkpoint saving ensured selection of the most generalizable model
 
-## 🔮 Future Improvements
-
-- Ensemble of multiple model architectures
-- More extensive hyperparameter tuning
-- Implementing custom contrastive loss functions
-- Exploring vision transformers for the feature extraction backbone
 
 ## 📝 License
 
 MIT
 
-## 🙏 Acknowledgements
+##  Acknowledgements
 
 - Cornell Machine Learning course (CS5780) for organizing the challenging competition
-- The Kaggle platform for hosting the competition
-- PyTorch and torchvision for providing the deep learning framework and pre-trained models
-- Google Colab Pro for providing affordable access to high-performance GPU resources
+
 
 ---
 
