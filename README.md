@@ -4,6 +4,10 @@
 
 This repository contains my solution for the Cornell Machine Learning Kaggle Competition (Spring 2025), which focused on comparing pairs of Rock-Paper-Scissors hand gesture images to determine if the first image beats the second image in the game.
 
+Competition Link : https://www.kaggle.com/competitions/expanded-rock-paper-scissors/leaderboard
+
+Team Name : (fm454, km942, joblink.one)
+
 I used an A100 GPU via Google Colab Pro for training, which was essential due to the extensive data augmentation and model complexity required to achieve competitive results.
 
 ## 📋 Challenge Description
