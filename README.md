@@ -1,6 +1,6 @@
 # Cornell Rock-Paper-Scissors Image Comparison Kaggle Competition
 
-## 🏆 6th Place Solution (out of 94 teams)
+## 🏆 6th Place Solution (out of 94 teams) - 90.03 % Accuracy
 
 This repository contains my solution for the Cornell's CS3780 Machine Learning Kaggle Competition (Spring 2025), which focused on comparing pairs of Rock-Paper-Scissors hand gesture images to determine if the first image beats the second image in the game.
 
